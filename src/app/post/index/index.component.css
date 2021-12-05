@@ -1,0 +1,40 @@
+.blog {
+  text-align: center;
+}
+.topbar {
+  margin: 1rem 4rem;
+}
+.card {
+  display: inline-flex;
+  width: 18rem;
+  height: 20rem;
+  margin: 1rem;
+}
+.button-group {
+  position: absolute;
+  bottom: 30px;
+  text-align: right;
+  padding-left: 30px;
+}
+.button-group a {
+  display: inline;
+  text-decoration: none;
+  padding: 15px;
+}
+.button-group a:hover {
+  cursor: pointer;
+}
+.btn {
+  margin: 5px;
+}
+
+.blog-link {
+  text-decoration: none;
+  color: #444;
+}
+.create-new {
+  margin-left: 15px;
+}
+.search-box {
+  padding: 5px;
+}

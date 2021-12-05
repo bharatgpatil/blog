@@ -1,0 +1,40 @@
+<div class="container mx-auto mt-4 blog">
+  <div class="row topbar">
+    <div class="col">
+      <div class="float-left create-new">
+        <a href="#" routerLink="/post/create/" class="btn btn-success">Create New Post</a>
+      </div>
+    </div>
+    <div class="col">
+      <nav class="navbar navbar-light bg-light float-right">
+        <input [(ngModel)]="searchInput" class="search-box" type="text" placeholder="Search for posts" size="24" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="filter()">Search</button>
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="button" *ngIf="resetShow" (click)="reset()">
+          Reset
+        </button>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 18rem" *ngFor="let post of posts">
+        <div class="card-body">
+          <a href="#" [routerLink]="['/post/', post.id, 'view']" class="blog-link">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">
+              {{ truncate(post.body) }}
+            </p></a
+          >
+          <div class="button-group">
+            <a href="#" [routerLink]="['/post/', post.id, 'view']" class="text-primary">View</a>
+            <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="nav-link">Edit</a>
+            <a (click)="deletePost(post.id)" class="text-danger">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row topbar">
+    <div class="col"><h4 *ngIf="nothingFound">No posts found</h4></div>
+  </div>
+</div>
