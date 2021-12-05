@@ -13,6 +13,7 @@ export class ViewComponent implements OnInit {
   id: number;
   post: Post;
   comments: Comment[];
+  deleted: boolean = false;
 
   constructor(public postService: PostService, private route: ActivatedRoute, private router: Router) {}
 
@@ -26,6 +27,19 @@ export class ViewComponent implements OnInit {
           this.comments = data;
           console.log(this.comments);
         });
+      }
+    });
+  }
+
+  deletePost(id) {
+    this.postService.delete(id).subscribe((res) => {
+      if (res) {
+        this.post = res;
+        this.comments = [];
+        console.log('Post deleted successfully!');
+        this.deleted = true;
+      } else {
+        this.deleted = false;
       }
     });
   }

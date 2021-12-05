@@ -31,4 +31,15 @@
 
 .card {
   padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.comments-heading {
+  margin-left: 15px;
+}
+.button-group {
+  margin: 20px 0;
+}
+.button-group button {
+  margin-left: 10px;
 }

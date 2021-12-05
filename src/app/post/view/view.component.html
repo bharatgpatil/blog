@@ -1,11 +1,26 @@
-<div class="container">
-  <a href="#" routerLink="/post/index" class="btn btn-outline-secondary back-button">Back</a>
-  <br />
-  <div class="card">
+<div class="container mx-auto mt-4 blog">
+  <div class="row topbar">
+    <div class="col">
+      <div class="float-left create-new">
+        <a href="#" routerLink="/post/index" class="btn btn-outline-secondary back-button">Home</a>
+      </div>
+    </div>
+    <div class="col">
+      <div class="button-group float-right">
+        <button [routerLink]="['/post/', post.id, 'edit']" type="button" class="btn btn-outline-dark">Edit</button>
+        <button (click)="deletePost(post.id)" type="button" class="btn btn-outline-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+  <h6 *ngIf="deleted" class="text-success">Post deleted successfully!</h6>
+
+  <div *ngIf="!deleted" class="card">
     <div class="card-body">
       <h3 class="card-title">{{ post.title }}</h3>
       <p class="card-text">{{ post.body }}</p>
     </div>
+    <h6 class="comments-heading">Comments:</h6>
+
     <div class="col-md-8" *ngFor="let comment of comments">
       <div class="media g-mb-30 media-comment">
         <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">

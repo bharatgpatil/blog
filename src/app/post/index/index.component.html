@@ -8,7 +8,14 @@
     <div class="col">
       <nav class="navbar navbar-light bg-light float-right">
         <input [(ngModel)]="searchInput" class="search-box" type="text" placeholder="Search for posts" size="24" />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="filter()">Search</button>
+        <button
+          class="btn btn-outline-success my-2 my-sm-0"
+          type="submit"
+          (click)="filter()"
+          [disabled]="searchInput && searchInput.length < 2"
+        >
+          Search
+        </button>
         <button class="btn btn-outline-danger my-2 my-sm-0" type="button" *ngIf="resetShow" (click)="reset()">
           Reset
         </button>

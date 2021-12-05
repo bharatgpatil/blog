@@ -39,6 +39,7 @@ export class IndexComponent implements OnInit {
 
   filter() {
     const filterValue = this.searchInput.toLowerCase();
+    // search only if string has more than 3 characters
     if (filterValue.length > 2) {
       this.posts = this.posts.filter(function (post) {
         return post.title.toLowerCase().includes(filterValue);

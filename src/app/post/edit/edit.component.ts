@@ -13,6 +13,7 @@ export class EditComponent implements OnInit {
   id: number;
   post: Post;
   form: FormGroup;
+  updated: boolean = false;
 
   constructor(public postService: PostService, private route: ActivatedRoute, private router: Router) {}
 
@@ -36,8 +37,15 @@ export class EditComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     this.postService.update(this.id, this.form.value).subscribe((res) => {
-      console.log('Post updated successfully!');
-      this.router.navigateByUrl('post/index');
+      if (res) {
+        this.post = res;
+        console.log('Post updated successfully!');
+        //this.router.navigateByUrl('post/index');
+
+        this.updated = true;
+      } else {
+        this.updated = false;
+      }
     });
   }
 }
